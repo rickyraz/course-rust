@@ -5,8 +5,10 @@ use std::cmp::Ordering;
 use std::fs::File;
 use std::io;
 use std::io::{BufRead, BufReader, ErrorKind, Write};
-// add trait
+// Add trait
 use std::ops::Add;
+// Hash Map
+use std::collections::HashMap;
 
 fn main() {}
 
@@ -274,4 +276,92 @@ fn ownership() {
     // print_str(str1);
     let str3 = print_return_str(str1);
     println!("str3  : {}", str3)
+}
+
+// ----- to store key-value pairs = HashMap
+
+fn hashmap() {
+    let mut heroes = HashMap::new();
+    heroes.insert("Superman", "Clark Kent");
+    heroes.insert("Batman", "Bruce Wayne");
+    heroes.insert("Flash", "Barry Allen");
+
+    for (k, v) in heroes.iter() {
+        println!("{} = {}", k, v)
+    }
+
+    println!("length {}", heroes.len());
+
+    // check spesific keys in hashmap
+    if heroes.contains_key(&"Batman") {
+        let the_batman = heroes.get(&"Batman");
+        match the_batman {
+            Some(x) => println!("Batman is a hero"),
+            None => println!("Batman is not a hero"),
+        }
+    }
+}
+
+// ----- to custom data type = Struct
+
+fn structs() {
+    struct Customer {
+        name: String,
+        address: String,
+        balance: f32,
+    }
+
+    let mut bob = Customer {
+        name: String::from("Bob Smith"),
+        address: String::from("Pepaya St"),
+        balance: 290.12,
+    };
+
+    bob.address = String::from("Ayam St");
+    println!("{}", bob.address)
+}
+
+// -----  can be used in any struct, like OOP constructor & interface = Traits
+
+fn traits() {
+    const PI: f32 = 3.141592;
+    trait Shape {
+        fn new(length: f32, width: f32) -> Self;
+        fn area(&self) -> f32;
+    }
+
+    struct Rectangle {
+        length: f32,
+        width: f32,
+    }
+    struct Circle {
+        length: f32,
+        width: f32,
+    }
+
+    impl Shape for Rectangle {
+        fn new(length: f32, width: f32) -> Rectangle {
+            return Rectangle { length, width };
+        }
+        fn area(&self) -> f32 {
+            return self.length * self.width;
+        }
+    }
+    impl Shape for Circle {
+        fn new(length: f32, width: f32) -> Circle {
+            return Circle { length, width };
+        }
+        fn area(&self) -> f32 {
+            return (self.length / 2.0).powf(2.0) * PI;
+        }
+    }
+
+    let rec: Rectangle = Shape::new(10.0, 12.0);
+    let circle: Circle = Shape::new(12.4, 16.8);
+
+    println!(
+        "rectangle area : {}, circle area : {} ",
+        rec.area(),
+        circle.area()
+    )
 }
