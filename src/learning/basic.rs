@@ -1,4 +1,3 @@
-
 // ----- example basic concept2
 
 fn greetings() {
@@ -274,7 +273,7 @@ fn ownership() {
     println!("str3  : {}", str3)
 }
 
-// ----- to store key-value pairs = HashMap
+// ----- to store key-value pairs = Hash Map
 
 fn hashmap() {
     let mut heroes = HashMap::new();
@@ -321,6 +320,7 @@ fn structs() {
 
 fn traits() {
     const PI: f32 = 3.141592;
+
     trait Shape {
         fn new(length: f32, width: f32) -> Self;
         fn area(&self) -> f32;

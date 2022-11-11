@@ -4,6 +4,7 @@ mod pizza_order {
         pub cheese: String,
         pub topping: String,
     }
+
     impl Pizza {
         pub fn lunch(topping: &str) -> Pizza {
             Pizza {
