@@ -15,21 +15,17 @@ use std::collections::HashMap;
 // Using module restaurant
 mod restaurant;
 use crate::restaurant::order_food;
+fn five() -> i32 {
+    5
+}
+// if add 'semicolon' at the end of 1 it will be statement not expression
+fn plus_one(x: i32) -> i32 {
+    x + 1
+}
 
 fn main() {
-    let mut x: i32 = 5;
+    let condition = false;
+    let number = if condition { 5 } else { 6 };
 
-    {
-        let x = x * 2;
-        println!("The value of x in the inner scope is: {x}");
-    }
-
-    x += 1;
-
-    println!("The value of x is: {x}");
-
-    let spaces = "   ";
-    let spaces = spaces.len();
-
-    println!("The length of spaces is: {spaces}");
+    println!("The value of number is: {number}");
 }

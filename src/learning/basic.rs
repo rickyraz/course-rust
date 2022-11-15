@@ -96,6 +96,24 @@ fn arrays() {
     }
 }
 
+fn structs() {
+    struct User {
+        active: bool,
+        username: &str,
+        email: &str,
+        sign_in_count: u64,
+    }
+
+    fn school() {
+        let user1 = User {
+            email: "someone@example.com",
+            username: "someusername123",
+            active: true,
+            sign_in_count: 1,
+        };
+    }
+}
+
 fn tuple() {
     let my_tuple: (u8, String, f64) = (21, "Ricky".to_string(), 50_000.00);
     println!("Name : {}", my_tuple.1);
