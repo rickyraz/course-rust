@@ -183,68 +183,6 @@ fn casting() {
     println!("{}", int3_u32)
 }
 
-fn enums() {
-    enum Day {
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-        Saturday,
-        Sunday,
-    }
-
-    // function to this enumarated type
-    impl Day {
-        fn is_weekend(&self) -> bool {
-            match self {
-                Day::Saturday | Day::Sunday => true,
-                _ => false,
-            }
-        }
-    }
-
-    let today: Day = Day::Monday;
-
-    match today {
-        Day::Monday => println!("Everyone hates monday"),
-        Day::Tuesday => println!("Donut Day"),
-        Day::Wednesday => println!("Hump day"),
-        Day::Thursday => println!("Pay Day"),
-        Day::Friday => println!("Almost weekend"),
-        Day::Saturday => println!("Weekend"),
-        Day::Sunday => println!("Weekend"),
-    }
-
-    println!("is today the weekend {}", today.is_weekend());
-}
-
-fn vector() {
-    // Vector are Like Arrays
-    let vec1: Vec<i32> = Vec::new();
-    let mut vec2 = vec![1, 2, 3, 4];
-    vec2.push(5);
-    println!("1st : {}", vec2[0]);
-
-    let second: &i32 = &vec2[1];
-    match vec2.get(1) {
-        Some(second) => println!("2nd : {}", second),
-        None => println!("No 2nd Values"),
-    }
-
-    // Cycle & change values
-    for index in &mut vec2 {
-        *index *= 2
-    }
-
-    for index in &vec2 {
-        println!("{}", index)
-    }
-
-    println!("Vector length {}", vec2.len());
-    println!("Pop : {:?}", vec2.pop());
-}
-
 // ----- functions example
 
 fn get_sum_2(x: i32, y: i32) -> i32 {
