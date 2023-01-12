@@ -9,7 +9,7 @@ use std::io;
 use std::io::{BufRead, BufReader, ErrorKind, Write};
 // Add trait
 use std::ops::Add;
-// Hash Map Data Structure
+// Hash-Map Data Structure
 use std::collections::HashMap;
 
 // Using module restaurant
@@ -17,7 +17,45 @@ mod restaurant;
 use crate::restaurant::order_food;
 
 fn main() {
-    let v: Vec<i32> = Vec::new();
+    order_food();
+    users();
+}
+
+fn nyoba2() {
+    let v = vec![1, 2, 478, 4, 5, 6, 0612];
+
+    let third: &i32 = &v[2];
+    println!("The third element is {}", third);
+
+    let sixth: Option<&i32> = v.get(6);
+    match sixth {
+        Some(sixth) => println!("The six element is {}", sixth),
+        None => println!("There is no six element."),
+    }
+
+    //---
+
+    let mut vc = vec![100, 32, 57];
+    for i in &mut vc {
+        *i += 50;
+        println!("{}", i);
+    }
+
+    //---
+
+    enum SpreadsheetCell {
+        Int(i32),
+        Float(f64),
+        Text(String),
+    }
+
+    let row = vec![
+        SpreadsheetCell::Int(3),
+        SpreadsheetCell::Text(String::from("blue")),
+        SpreadsheetCell::Float(10.12),
+    ];
+
+    //---
 }
 
 fn users() {
@@ -60,7 +98,7 @@ fn users() {
     // println!("hi {}", user1.username);
     println!("hi {}", user3.username);
 
-    //--
+    //-- unimplement build user !!
     fn build_user(email: String, username: String) -> User {
         User {
             email,
